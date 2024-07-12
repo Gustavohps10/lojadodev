@@ -1,7 +1,9 @@
-import { Button, ButtonGroup } from '@chakra-ui/react'
+import { Button } from '@chakra-ui/react'
 
 export default function Home() {
-  return (<>
-    <Button>Chakra button</Button>
-  </>)
+  return (
+    <>
+      <Button>Chakra button</Button>
+    </>
+  )
 }

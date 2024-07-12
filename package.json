@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint src",
+    "lint": "next lint",
     "prepare": "husky"
   },
   "dependencies": {
@@ -14,6 +14,7 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
+    "@rocketseat/eslint-config": "^2.2.2",
     "framer-motion": "^11.3.2",
     "next": "14.2.5",
     "react": "^18",
@@ -24,8 +25,9 @@
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
-    "eslint": "^8",
+    "eslint": "8.57.0",
     "eslint-config-next": "14.2.5",
+    "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-simple-import-sort": "^12.1.1",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
