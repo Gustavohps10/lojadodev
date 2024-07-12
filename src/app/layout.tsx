@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
-import { Providers } from "./providers";
+
 import { fonts } from "./fonts";
+import { Providers } from "./providers";
 
 export const metadata: Metadata = {
   title: "Marketplace App",
@@ -15,7 +16,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={fonts.roboto.className}>
-        <Providers>{children}</Providers>
+        <Providers>{children}
+        </Providers>
       </body>
     </html>
   );
