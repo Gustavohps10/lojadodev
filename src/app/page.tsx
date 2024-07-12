@@ -1,3 +1,7 @@
+import { Button, ButtonGroup } from '@chakra-ui/react'
+
 export default function Home() {
-  return 'Init'
+  return (<>
+    <Button>Chakra button</Button>
+  </>)
 }

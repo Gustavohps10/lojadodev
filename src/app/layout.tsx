@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Roboto } from "next/font/google";
-
-const roboto = Roboto({weight: ["400", "500", "700"], subsets: ['latin']});
+import { Providers } from "./providers";
+import { fonts } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Marketplace App",
@@ -15,7 +14,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={roboto.className}>{children}</body>
+      <body className={fonts.roboto.className}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
