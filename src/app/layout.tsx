@@ -1,5 +1,7 @@
+import { Box } from '@chakra-ui/react'
 import type { Metadata } from 'next'
 
+import { Navbar } from '../components/navbar'
 import { fonts } from './fonts'
 import { Providers } from './providers'
 
@@ -16,7 +18,10 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={fonts.roboto.className}>
-        <Providers>{children}</Providers>
+        <Providers>
+          <Navbar />
+          <Box px={10}>{children}</Box>
+        </Providers>
       </body>
     </html>
   )
