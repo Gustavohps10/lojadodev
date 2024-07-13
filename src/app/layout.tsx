@@ -20,7 +20,7 @@ export default function RootLayout({
       <body className={fonts.roboto.className}>
         <Providers>
           <Navbar />
-          <Box px={10}>{children}</Box>
+          <Box px={20}>{children}</Box>
         </Providers>
       </body>
     </html>
