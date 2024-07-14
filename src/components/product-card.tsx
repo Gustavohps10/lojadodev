@@ -14,9 +14,9 @@ import { TiShoppingCart } from 'react-icons/ti'
 interface ProductCardProps {
   product: {
     name: string
-    price: number
+    price: number | null
     imageUrl: string
-    description: string
+    description: string | null
   }
 }
 
@@ -59,10 +59,11 @@ export function ProductCard({ product }: ProductCardProps) {
           </Box>
         </Box>
         <Text mt={2} color="gray.400" fontSize="lg" fontWeight="semibold">
-          {(product.price / 100).toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL',
-          })}
+          {product.price &&
+            (product.price / 100).toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL',
+            })}
         </Text>
         <Stack py={3} spacing="1">
           <Heading size="md" fontWeight={900}>
@@ -70,7 +71,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </Heading>
           <Text color="gray.500">2024</Text>
           <Text fontWeight={300} color={'gray.300'}>
-            {product.description}
+            {product?.description}
           </Text>
         </Stack>
       </CardBody>

@@ -1,7 +1,7 @@
 'use client'
 
 import { Box, Button, Flex } from '@chakra-ui/react'
-import { EmblaCarouselType } from 'embla-carousel/components/EmblaCarousel'
+import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
 import Image from 'next/image'
@@ -11,7 +11,11 @@ import fakeBanner from '../assets/banners/1.png'
 import { useCarouselDotButton } from '../hooks/useCarouselDotButton'
 import { useCarouselPrevNextButtons } from '../hooks/useCarouselPrevNextButtons'
 
-export function Carousel(props) {
+type CarouselProps = {
+  options?: EmblaOptionsType
+}
+
+export function Carousel(props: CarouselProps) {
   const { options } = props
   const [emblaRef, emblaApi] = useEmblaCarousel(options, [Autoplay()])
 
