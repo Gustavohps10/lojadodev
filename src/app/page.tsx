@@ -1,10 +1,12 @@
 import { Grid } from '@chakra-ui/react'
 
+import { Carousel } from '../components/carousel'
 import { ProductCard } from '../components/product-card'
 
 export default function Home() {
   return (
     <>
+      <Carousel />
       <Grid
         templateColumns="repeat(auto-fit, 300px)"
         justifyContent="center"

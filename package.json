@@ -22,6 +22,8 @@
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
     "@rocketseat/eslint-config": "^2.2.2",
+    "embla-carousel-autoplay": "^8.1.6",
+    "embla-carousel-react": "^8.1.6",
     "framer-motion": "^11.3.2",
     "next": "14.2.5",
     "react": "^18",
