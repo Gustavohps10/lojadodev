@@ -11,9 +11,16 @@ import {
 import Image from 'next/image'
 import { TiShoppingCart } from 'react-icons/ti'
 
-import fakeImage from '../assets/shirts/1.png'
+interface ProductCardProps {
+  product: {
+    name: string
+    price: number
+    imageUrl: string
+    description: string
+  }
+}
 
-export function ProductCard() {
+export function ProductCard({ product }: ProductCardProps) {
   return (
     <Card
       maxW="400px"
@@ -43,19 +50,27 @@ export function ProductCard() {
             transition="all .2s ease"
             _groupHover={{ width: 190 }}
           >
-            <Image width={400} height={400} src={fakeImage} alt="Camiseta" />
+            <Image
+              width={400}
+              height={400}
+              src={product.imageUrl}
+              alt="Camiseta"
+            />
           </Box>
         </Box>
         <Text mt={2} color="gray.400" fontSize="lg" fontWeight="semibold">
-          R$ 250,00
+          {(product.price / 100).toLocaleString('pt-BR', {
+            style: 'currency',
+            currency: 'BRL',
+          })}
         </Text>
         <Stack py={3} spacing="1">
           <Heading size="md" fontWeight={900}>
-            Camiseta - JS do it
+            {product.name}
           </Heading>
           <Text color="gray.500">2024</Text>
           <Text fontWeight={300} color={'gray.300'}>
-            Uma camisa muito bonita
+            {product.description}
           </Text>
         </Stack>
       </CardBody>
