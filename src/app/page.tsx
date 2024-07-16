@@ -1,26 +1,13 @@
 import { Grid } from '@chakra-ui/react'
-import Stripe from 'stripe'
 
 import { Carousel } from '../components/carousel'
 import { ProductCard } from '../components/product-card'
-import { stripe } from '../lib/stripe'
+import { getProducts } from './utils'
+
+export const revalidate = 60 * 60 // 1 hour
 
 export default async function Home() {
-  const { data } = await stripe.products.list({
-    expand: ['data.default_price'],
-  })
-
-  const products = data.map((product) => {
-    const price = product.default_price as Stripe.Price
-
-    return {
-      id: product.id,
-      name: product.name,
-      description: product.description,
-      imageUrl: product.images[0],
-      price: price.unit_amount,
-    }
-  })
+  const products = await getProducts()
 
   return (
     <>
