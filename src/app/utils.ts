@@ -16,7 +16,10 @@ export const getProducts = cache(async () => {
       name: product.name,
       description: product.description,
       imageUrl: product.images[0],
-      price: price.unit_amount,
+      price: new Intl.NumberFormat('pt-BR', {
+        style: 'currency',
+        currency: 'BRL',
+      }).format(price.unit_amount / 100),
     }
   })
   return products
