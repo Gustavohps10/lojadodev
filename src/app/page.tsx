@@ -1,4 +1,5 @@
 import { Grid } from '@chakra-ui/react'
+import Link from 'next/link'
 
 import { Carousel } from '../components/carousel'
 import { ProductCard } from '../components/product-card'
@@ -21,7 +22,11 @@ export default async function Home() {
         my={4}
       >
         {products.map((product) => {
-          return <ProductCard key={product.id} product={product} />
+          return (
+            <Link href={`/products/${product.id}`} key={product.id}>
+              <ProductCard product={product} />
+            </Link>
+          )
         })}
       </Grid>
     </>

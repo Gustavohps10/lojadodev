@@ -14,9 +14,9 @@ import { TiShoppingCart } from 'react-icons/ti'
 interface ProductCardProps {
   product: {
     name: string
-    price: string | null
+    price?: string
     imageUrl: string
-    description: string | null
+    description?: string
   }
 }
 
