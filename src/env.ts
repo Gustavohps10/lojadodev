@@ -1,6 +1,7 @@
 import { z } from 'zod'
 
 const envSchema = z.object({
+  NEXT_URL: z.string().url(),
   MODE: z.enum(['development', 'production', 'test']).default('production'),
   STRIPE_PUBLIC_KEY: z.string(),
   STRIPE_SECRET_KEY: z.string(),
