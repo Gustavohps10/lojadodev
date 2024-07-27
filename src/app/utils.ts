@@ -32,28 +32,32 @@ export const getProducts = cache(async () => {
 })
 
 export const getProduct = cache(async (id: string) => {
-  const data = await stripe.products.retrieve(id, {
-    expand: ['default_price'],
-  })
+  try {
+    const data = await stripe.products.retrieve(id, {
+      expand: ['default_price'],
+    })
 
-  const price = data.default_price as Stripe.Price
+    const price = data.default_price as Stripe.Price
 
-  if (!price.unit_amount) {
-    throw new Error('Price is empty')
+    if (!price.unit_amount) {
+      throw new Error('Price is empty')
+    }
+
+    const currencyPrice = price.unit_amount.toLocaleString('pt-BR', {
+      style: 'currency',
+      currency: 'BRL',
+    })
+
+    const product = {
+      id: data.id,
+      name: data.name,
+      description: data.description as string,
+      imageUrl: data.images[0],
+      price: currencyPrice,
+    }
+
+    return product
+  } catch (error) {
+    return undefined
   }
-
-  const currencyPrice = price.unit_amount.toLocaleString('pt-BR', {
-    style: 'currency',
-    currency: 'BRL',
-  })
-
-  const product = {
-    id: data.id,
-    name: data.name,
-    description: data.description as string,
-    imageUrl: data.images[0],
-    price: currencyPrice,
-  }
-
-  return product
 })
