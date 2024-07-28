@@ -1,5 +1,3 @@
-'use client'
-
 import {
   Card,
   CardBody,
@@ -8,27 +6,29 @@ import {
   Heading,
   Stack,
   Text,
-  useToast,
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
-import { useEffect } from 'react'
 
-import fakeImage from '../../assets/shirts/1.png'
+import { getSessionData } from '../utils'
 
-export default function Sucess() {
-  const toast = useToast()
-  useEffect(() => {
-    toast({
-      title: 'Compra realizada com sucesso.',
-      description: 'Você já pode continuar comprando.',
-      status: 'success',
-      duration: 8000,
-      isClosable: true,
-      position: 'top',
-    })
-  }, [toast])
+export default async function Sucess({
+  searchParams,
+}: {
+  searchParams: { session_id: string }
+}) {
+  const session = await getSessionData(searchParams.session_id)
 
+  //   const toast = useToast()
+
+  //   toast({
+  //     title: 'Compra realizada com sucesso.',
+  //     description: 'Você já pode continuar comprando.',
+  //     status: 'success',
+  //     duration: 8000,
+  //     isClosable: true,
+  //     position: 'top',
+  //   })
   return (
     <Center my="8">
       <Card maxW="md">
@@ -46,14 +46,14 @@ export default function Sucess() {
             <Image
               width={300}
               height={300}
-              src={fakeImage}
+              src={session.imageUrl}
               alt="Green double couch with wooden legs"
             />
           </Flex>
           <Stack mt="6" spacing="3">
             <Text align="center" my={4}>
-              Uhuul, <b>Gustavo Henrique</b> o produto <b>Camiseta JS</b> já
-              esta sendo preparado para envio.
+              Uhuul, <b>{session.customerName}</b> o produto{' '}
+              <b>{session.productName}</b> já esta sendo preparado para envio.
             </Text>
             <Link href="/">
               <Text

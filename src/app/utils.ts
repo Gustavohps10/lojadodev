@@ -62,3 +62,26 @@ export const getProduct = cache(async (id: string) => {
     return undefined
   }
 })
+
+export const getSessionData = cache(async (sessionId: string) => {
+  const session = await stripe.checkout.sessions.retrieve(sessionId, {
+    expand: ['line_items', 'line_items.data.price.product'],
+  })
+
+  if (
+    !session.line_items ||
+    !session.line_items.data[0] ||
+    !session.line_items.data[0].price ||
+    !session.customer_details
+  ) {
+    throw new Error('Items not found')
+  }
+
+  const product = session.line_items.data[0].price.product as Stripe.Product
+
+  return {
+    customerName: session.customer_details.name,
+    productName: product.name,
+    imageUrl: product.images[0],
+  }
+})
