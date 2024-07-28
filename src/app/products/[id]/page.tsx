@@ -1,8 +1,8 @@
-import { Box, Button, Flex, Heading, Text } from '@chakra-ui/react'
+import { Box, Flex, Heading, Text } from '@chakra-ui/react'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { MdAddShoppingCart } from 'react-icons/md'
 
+import { BuyNowButton } from '../../../components/BuyNowButton'
 import { getProduct } from '../../utils'
 
 export const revalidate = 60 * 60 // 1 hour
@@ -41,9 +41,7 @@ export default async function Product({ params }: { params: { id: string } }) {
             {product.description}
           </Text>
 
-          <Button w="full" mt={8} variant="outline" gap={2}>
-            <MdAddShoppingCart size={20} /> Compre agora
-          </Button>
+          <BuyNowButton priceId={product.defaultPriceId} />
         </Box>
       </Flex>
     </>

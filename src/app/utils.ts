@@ -54,6 +54,7 @@ export const getProduct = cache(async (id: string) => {
       description: data.description as string,
       imageUrl: data.images[0],
       price: currencyPrice,
+      defaultPriceId: price.id,
     }
 
     return product

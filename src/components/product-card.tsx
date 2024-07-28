@@ -14,9 +14,9 @@ import { TiShoppingCart } from 'react-icons/ti'
 interface ProductCardProps {
   product: {
     name: string
-    price?: string
+    price: string
     imageUrl: string
-    description?: string
+    description: string
   }
 }
 
@@ -67,7 +67,7 @@ export function ProductCard({ product }: ProductCardProps) {
           </Heading>
           <Text color="gray.500">2024</Text>
           <Text fontWeight={300} color={'gray.300'}>
-            {product?.description}
+            {product.description}
           </Text>
         </Stack>
       </CardBody>
