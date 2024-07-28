@@ -15,7 +15,7 @@ export const getProducts = cache(async () => {
       throw new Error('Price is empty')
     }
 
-    const currencyPrice = price.unit_amount.toLocaleString('pt-BR', {
+    const currencyPrice = (price.unit_amount / 100).toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     })
@@ -43,7 +43,7 @@ export const getProduct = cache(async (id: string) => {
       throw new Error('Price is empty')
     }
 
-    const currencyPrice = price.unit_amount.toLocaleString('pt-BR', {
+    const currencyPrice = (price.unit_amount / 100).toLocaleString('pt-BR', {
       style: 'currency',
       currency: 'BRL',
     })
