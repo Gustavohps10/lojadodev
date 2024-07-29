@@ -17,6 +17,7 @@ import {
   useColorModeValue,
 } from '@chakra-ui/react'
 import Image from 'next/image'
+import Link from 'next/link'
 import { ImExit } from 'react-icons/im'
 import { RiAccountCircleLine } from 'react-icons/ri'
 
@@ -28,7 +29,9 @@ export function Navbar() {
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={10}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <Image height={28} src={logo} alt="" />
+        <Link href="/">
+          <Image height={28} src={logo} alt="" />
+        </Link>
 
         <Flex alignItems={'center'}>
           <Stack direction={'row'} spacing={7}>
