@@ -1,4 +1,4 @@
-import { Grid } from '@chakra-ui/react'
+import { Grid, Heading } from '@chakra-ui/react'
 import { Metadata } from 'next'
 import Link from 'next/link'
 
@@ -20,6 +20,9 @@ export default async function Home() {
   return (
     <>
       <Carousel />
+      <Heading size="xl" my={8} textAlign="center" color="gray.400">
+        Melhores Produtos
+      </Heading>
       <Grid
         templateColumns="repeat(auto-fit, 300px)"
         justifyContent="center"
