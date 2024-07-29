@@ -4,16 +4,19 @@ import { Box, Button, Flex } from '@chakra-ui/react'
 import { EmblaCarouselType, EmblaOptionsType } from 'embla-carousel'
 import Autoplay from 'embla-carousel-autoplay'
 import useEmblaCarousel from 'embla-carousel-react'
-import Image from 'next/image'
 import { ComponentPropsWithRef, useCallback } from 'react'
 
-import fakeBanner from '../assets/banners/1.png'
+import banner1 from '../assets/banners/1.png'
+import banner2 from '../assets/banners/2.png'
 import { useCarouselDotButton } from '../hooks/useCarouselDotButton'
 import { useCarouselPrevNextButtons } from '../hooks/useCarouselPrevNextButtons'
+import Image from './image'
 
 type CarouselProps = {
   options?: EmblaOptionsType
 }
+
+const banners = [banner1, banner2]
 
 export function Carousel(props: CarouselProps) {
   const { options } = props
@@ -47,20 +50,15 @@ export function Carousel(props: CarouselProps) {
     <Box my={4} mx="auto" maxW={1280}>
       <Box overflow="hidden" className="embla" ref={emblaRef}>
         <Flex className="embla__container">
-          {Array.from({ length: 4 }).map((_, index) => {
+          {banners.map((banner, index) => {
             return (
-              <Box
-                className="embla__slide"
-                key={index}
-                h={240}
-                bg="blue"
-                flex="0 0 100%"
-              >
+              <Box className="embla__slide" key={index} h={240} flex="0 0 100%">
                 <Image
                   width={1280}
-                  height={400}
-                  src={fakeBanner}
-                  alt="banner 1"
+                  h="full"
+                  src={banner}
+                  alt={`Banner ${index}`}
+                  objectFit="cover"
                 />
               </Box>
             )
