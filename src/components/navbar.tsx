@@ -16,8 +16,11 @@ import {
   useColorMode,
   useColorModeValue,
 } from '@chakra-ui/react'
+import Image from 'next/image'
 import { ImExit } from 'react-icons/im'
 import { RiAccountCircleLine } from 'react-icons/ri'
+
+import logo from '../assets/lojadodev-logo.png'
 
 export function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode()
@@ -25,7 +28,7 @@ export function Navbar() {
   return (
     <Box bg={useColorModeValue('gray.100', 'gray.900')} px={10}>
       <Flex h={16} alignItems={'center'} justifyContent={'space-between'}>
-        <Box fontWeight="bold">Marketplace App</Box>
+        <Image height={28} src={logo} alt="" />
 
         <Flex alignItems={'center'}>
           <Stack direction={'row'} spacing={7}>
