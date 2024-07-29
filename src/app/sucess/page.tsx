@@ -7,11 +7,18 @@ import {
   Stack,
   Text,
 } from '@chakra-ui/react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound, redirect } from 'next/navigation'
 
 import { getSessionData } from '../utils'
+
+export const metadata: Metadata = {
+  title: 'Sucesso | Lojadodev',
+  description: 'Compra bem sucedida',
+  robots: 'noindex',
+}
 
 export default async function Sucess({
   searchParams,

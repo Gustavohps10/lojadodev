@@ -1,4 +1,5 @@
 import { Box, Flex, Heading, Text } from '@chakra-ui/react'
+import { Metadata } from 'next'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
@@ -6,6 +7,11 @@ import { BuyNowButton } from '../../../components/BuyNowButton'
 import { getProduct } from '../../utils'
 
 export const revalidate = 60 * 60 // 1 hour
+
+export const metadata: Metadata = {
+  title: 'Detalhes do produto | Lojadodev',
+  description: 'Detalhes do produto',
+}
 
 export async function generateStaticParams() {
   return [{ id: 'prod_QTx9zkZss8vdPZ' }]

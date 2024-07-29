@@ -7,7 +7,7 @@ import { fonts } from './fonts'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-  title: 'Marketplace App',
+  title: 'Lojadodev',
   description: 'A simple marketplace page',
 }
 
