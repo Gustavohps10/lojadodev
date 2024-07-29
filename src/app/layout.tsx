@@ -3,12 +3,13 @@ import type { Metadata } from 'next'
 
 import { Footer } from '../components/footer'
 import { Navbar } from '../components/navbar'
+import { env } from '../env'
 import { fonts } from './fonts'
 import { Providers } from './providers'
 
 export const metadata: Metadata = {
-  title: 'Lojadodev',
-  description: 'A simple marketplace page',
+  title: env.APP_NAME,
+  description: 'Loja de produtos para devs',
 }
 
 export default function RootLayout({

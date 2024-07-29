@@ -1,11 +1,18 @@
 import { Grid } from '@chakra-ui/react'
+import { Metadata } from 'next'
 import Link from 'next/link'
 
 import { Carousel } from '../components/carousel'
 import { ProductCard } from '../components/product-card'
+import { env } from '../env'
 import { getProducts } from './utils'
 
 export const revalidate = 60 * 60 // 1 hour
+
+export const metadata: Metadata = {
+  title: `${env.APP_NAME} | Home`,
+  description: 'Home page',
+}
 
 export default async function Home() {
   const products = await getProducts()

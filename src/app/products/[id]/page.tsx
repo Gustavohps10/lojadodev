@@ -4,12 +4,13 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 
 import { BuyNowButton } from '../../../components/BuyNowButton'
+import { env } from '../../../env'
 import { getProduct } from '../../utils'
 
 export const revalidate = 60 * 60 // 1 hour
 
 export const metadata: Metadata = {
-  title: 'Detalhes do produto | Lojadodev',
+  title: `${env.APP_NAME} | Detalhes do produto `,
   description: 'Detalhes do produto',
 }
 

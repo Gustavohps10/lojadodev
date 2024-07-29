@@ -12,10 +12,11 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound, redirect } from 'next/navigation'
 
+import { env } from '../../env'
 import { getSessionData } from '../utils'
 
 export const metadata: Metadata = {
-  title: 'Sucesso | Lojadodev',
+  title: `${env.APP_NAME} | Sucesso`,
   description: 'Compra bem sucedida',
   robots: 'noindex',
 }
