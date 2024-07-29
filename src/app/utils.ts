@@ -64,24 +64,28 @@ export const getProduct = cache(async (id: string) => {
 })
 
 export const getSessionData = cache(async (sessionId: string) => {
-  const session = await stripe.checkout.sessions.retrieve(sessionId, {
-    expand: ['line_items', 'line_items.data.price.product'],
-  })
+  try {
+    const session = await stripe.checkout.sessions.retrieve(sessionId, {
+      expand: ['line_items', 'line_items.data.price.product'],
+    })
 
-  if (
-    !session.line_items ||
-    !session.line_items.data[0] ||
-    !session.line_items.data[0].price ||
-    !session.customer_details
-  ) {
-    throw new Error('Items not found')
-  }
+    if (
+      !session.line_items ||
+      !session.line_items.data[0] ||
+      !session.line_items.data[0].price ||
+      !session.customer_details
+    ) {
+      throw new Error('Items not found')
+    }
 
-  const product = session.line_items.data[0].price.product as Stripe.Product
+    const product = session.line_items.data[0].price.product as Stripe.Product
 
-  return {
-    customerName: session.customer_details.name,
-    productName: product.name,
-    imageUrl: product.images[0],
+    return {
+      customerName: session.customer_details.name,
+      productName: product.name,
+      imageUrl: product.images[0],
+    }
+  } catch {
+    return undefined
   }
 })

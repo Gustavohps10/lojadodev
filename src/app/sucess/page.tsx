@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { notFound, redirect } from 'next/navigation'
 
 import { getSessionData } from '../utils'
 
@@ -17,7 +18,14 @@ export default async function Sucess({
 }: {
   searchParams: { session_id: string }
 }) {
+  if (!searchParams.session_id) {
+    redirect('/')
+  }
+
   const session = await getSessionData(searchParams.session_id)
+  if (!session) {
+    notFound()
+  }
 
   //   const toast = useToast()
 
