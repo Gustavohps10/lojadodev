@@ -1,4 +1,4 @@
-<h1 align="center"><img height="50" src=".github/lojadodev-logo.png"></h1>
+<h1 align="center"><img height="44" src=".github/lojadodev-logo.png"></h1>
 
 <p align="center">
     <img src="https://img.shields.io/github/languages/top/Gustavohps10/lojadodev?label=TypeScript&color=121214&style=flat-square&logo=typescript&logoColor=ffffff"/>
